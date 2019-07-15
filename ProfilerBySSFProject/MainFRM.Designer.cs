@@ -37,6 +37,7 @@
             this.ColumnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelParcel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCamLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -46,6 +47,9 @@
             // 
             // panelParcel
             // 
+            this.panelParcel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelParcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(76)))), ((int)(((byte)(130)))));
             this.panelParcel.Controls.Add(this.picCamLeft);
             this.panelParcel.Controls.Add(this.pictureBox6);
@@ -53,7 +57,7 @@
             this.panelParcel.ForeColor = System.Drawing.Color.White;
             this.panelParcel.Location = new System.Drawing.Point(12, 12);
             this.panelParcel.Name = "panelParcel";
-            this.panelParcel.Size = new System.Drawing.Size(757, 661);
+            this.panelParcel.Size = new System.Drawing.Size(757, 664);
             this.panelParcel.TabIndex = 87;
             // 
             // picCamLeft
@@ -64,7 +68,7 @@
             this.picCamLeft.Location = new System.Drawing.Point(0, 0);
             this.picCamLeft.Margin = new System.Windows.Forms.Padding(4);
             this.picCamLeft.Name = "picCamLeft";
-            this.picCamLeft.Size = new System.Drawing.Size(757, 661);
+            this.picCamLeft.Size = new System.Drawing.Size(757, 664);
             this.picCamLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picCamLeft.TabIndex = 107;
             this.picCamLeft.TabStop = false;
@@ -93,7 +97,7 @@
             this.listViewIPChannel.Enabled = false;
             this.listViewIPChannel.FullRowSelect = true;
             this.listViewIPChannel.GridLines = true;
-            this.listViewIPChannel.Location = new System.Drawing.Point(-259, -175);
+            this.listViewIPChannel.Location = new System.Drawing.Point(-259, -172);
             this.listViewIPChannel.Margin = new System.Windows.Forms.Padding(4);
             this.listViewIPChannel.MultiSelect = false;
             this.listViewIPChannel.Name = "listViewIPChannel";
@@ -118,10 +122,10 @@
             this.pictureBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.Location = new System.Drawing.Point(787, 12);
+            this.pictureBox14.Location = new System.Drawing.Point(781, 12);
             this.pictureBox14.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(112, 90);
+            this.pictureBox14.Size = new System.Drawing.Size(125, 103);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox14.TabIndex = 108;
             this.pictureBox14.TabStop = false;
@@ -139,13 +143,23 @@
             this.pictureBox10.TabIndex = 89;
             this.pictureBox10.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(787, 657);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 13);
+            this.label1.TabIndex = 109;
+            this.label1.Text = "click on image to shot";
+            // 
             // MainFRM
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(35)))), ((int)(((byte)(31)))));
-            this.ClientSize = new System.Drawing.Size(912, 684);
+            this.ClientSize = new System.Drawing.Size(912, 687);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.listViewIPChannel);
             this.Controls.Add(this.pictureBox10);
@@ -168,6 +182,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -180,5 +195,6 @@
         private System.Windows.Forms.ColumnHeader ColumnHeader2;
         private System.Windows.Forms.PictureBox picCamLeft;
         private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.Label label1;
     }
 }

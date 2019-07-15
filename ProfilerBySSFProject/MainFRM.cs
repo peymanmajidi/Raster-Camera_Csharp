@@ -25,57 +25,7 @@ namespace ProfilerBySSFProject
 {
     public partial class MainFRM : Form
     {
-        // ------------------------------------     متغیرها
-        private bool DeviceStat = false;
 
-        private bool runtime = true;
-        private bool mute = false;
-        private int idle = 60;
-        private bool founded = false;
-        private bool onProcess = false;
-        private IWavePlayer waveOutDevice;
-        private AudioFileReader audioFileReader;
-        private string cityBarcode01, cityBarcode02, cityBarcode03, cityBarcode04, cityBarcode05;
-        private bool pre = false;
-        private bool current = false;
-        private static Image img;
-        private string fn;
-        private Thread t;
-        private const string barcodeReaderAppliaction = "WindowsFormsApplication1";
-
-        private string[] cities = new string[] {
-            "همدان",
-            "تهران",
-            "مشهد",
-            "اردبیل",
-            "یزد",
-            "کرمان",
-            "اصفهان",
-            "اراک",
-            "اهواز",
-            "قزوین",
-            "گرگان"
-        };
-
-        private class Box
-        {
-            public double lenght;
-            public double width;
-            public double height;
-            public double weight;
-
-            public Box(double lenght, double width, double height, double weight)
-            {
-                this.lenght = lenght;
-                this.width = width;
-                this.height = height;
-                this.weight = weight;
-            }
-        }
-
-        private Box box;
-
-        private ToolTip toolTip1 = new ToolTip();
 
         // توابع و متدها
         public MainFRM()
@@ -97,10 +47,7 @@ namespace ProfilerBySSFProject
             }
             else
             {
-                //保存SDK日志 To save the SDK log
                 CHCNetSDK.NET_DVR_SetLogToFile(3, app.WorkingPath, true);
-
-                //comboBoxView.SelectedIndex = 0;
 
                 for (int i = 0; i < 64; i++)
                 {
@@ -116,7 +63,6 @@ namespace ProfilerBySSFProject
 
       
 
-        private Image TempShot_top;
        
        
 
@@ -126,15 +72,7 @@ namespace ProfilerBySSFProject
         }
 
 
-        private void openSyncDialog()
-        {
-           
-        }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            openSyncDialog();
-        }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
@@ -153,8 +91,8 @@ namespace ProfilerBySSFProject
         private bool m_bInitSDK = false;
         private bool m_bRecord = false;
         private uint iLastErr = 0;
-        private Int32 Camera_id_top = -1;
-        private Int32 CameraHandel_top = -1;
+        private Int32 camera_id = -1;
+        private Int32 camera_handle = -1;
 
         private Int32 i = 0;
         private Int32 m_lTree = 0;
@@ -174,8 +112,7 @@ namespace ProfilerBySSFProject
         public CHCNetSDK.NET_DVR_IPCHANINFO m_struChanInfo;
         public CHCNetSDK.NET_DVR_IPCHANINFO_V40 m_struChanInfoV40;
         private PlayCtrl.DECCBFUN m_fDisplayFun = null;
-        private string str1;
-        private string str2;
+
 
         public delegate void MyDebugInfo(string str);
 
@@ -188,7 +125,7 @@ namespace ProfilerBySSFProject
 
             uint dwReturn = 0;
             int iGroupNo = 0;
-            if (!CHCNetSDK.NET_DVR_GetDVRConfig(Camera_id_top, CHCNetSDK.NET_DVR_GET_IPPARACFG_V40, iGroupNo, ptrIpParaCfgV40, dwSize, ref dwReturn))
+            if (!CHCNetSDK.NET_DVR_GetDVRConfig(camera_id, CHCNetSDK.NET_DVR_GET_IPPARACFG_V40, iGroupNo, ptrIpParaCfgV40, dwSize, ref dwReturn))
             {
                 iLastErr = CHCNetSDK.NET_DVR_GetLastError();
                 str = "NET_DVR_GET_IPPARACFG_V40 failed, error code= " + iLastErr;
@@ -251,41 +188,12 @@ namespace ProfilerBySSFProject
 
         public void ListIPChannel(Int32 iChanNo, byte byOnline, int byIPID)
         {
-            str1 = String.Format("IPCamera {0}", iChanNo);
-            m_lTree++;
-
-            if (byIPID == 0)
-            {
-                str2 = "X"; //通道空闲，没有添加前端设备 the channel is idle
-            }
-            else
-            {
-                if (byOnline == 0)
-                {
-                    str2 = "offline"; //通道不在线 the channel is off-line
-                }
-                else
-                    str2 = "online"; //通道在线 The channel is on-line
-            }
-
-            // listViewIPChannel.Items.Add(new ListViewItem(new string[] { str1, str2 }));//将通道添加到列表中 add the channel to the list
+            
         }
 
         public void ListAnalogChannel(Int32 iChanNo, byte byEnable)
         {
-            str1 = String.Format("Camera {0}", iChanNo);
-            m_lTree++;
-
-            if (byEnable == 0)
-            {
-                str2 = "Disabled"; //通道已被禁用 This channel has been disabled
-            }
-            else
-            {
-                str2 = "Enabled"; //通道处于启用状态 This channel has been enabled
-            }
-
-            // listViewIPChannel.Items.Add(new ListViewItem(new string[] { str1, str2 }));//将通道添加到列表中 add the channel to the list
+           
         }
 
         private void listViewIPChannel_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -320,7 +228,7 @@ namespace ProfilerBySSFProject
             if (true)
             {
                 //打开预览 Start live view
-                CameraHandel_top = CHCNetSDK.NET_DVR_RealPlay_V40(Camera_id_top, ref lpPreviewInfoA, null/*RealData*/, pUser);
+                camera_handle = CHCNetSDK.NET_DVR_RealPlay_V40(camera_id, ref lpPreviewInfoA, null/*RealData*/, pUser);
             }
         }
 
@@ -328,8 +236,8 @@ namespace ProfilerBySSFProject
         {
             try
             {
-                CHCNetSDK.NET_DVR_StopRealPlay(CameraHandel_top);
-                CameraHandel_top = -1;
+                CHCNetSDK.NET_DVR_StopRealPlay(camera_handle);
+                camera_handle = -1;
 
                 //btnStart.Enabled = true;
             }
@@ -352,7 +260,7 @@ namespace ProfilerBySSFProject
                 string DVRUserName = "admin";
                 string DVRPassword = "12345";
                 //登录设备 Login the device
-                Camera_id_top = CHCNetSDK.NET_DVR_Login_V30(ip_address_top, DVRPortNumber, DVRUserName, DVRPassword, ref DeviceInfo_top);
+                camera_id = CHCNetSDK.NET_DVR_Login_V30(ip_address_top, DVRPortNumber, DVRUserName, DVRPassword, ref DeviceInfo_top);
                 dwAChanTotalNum = (uint)DeviceInfo_top.byChanNum;
 
                 for (i = 0; i < dwAChanTotalNum; i++)
@@ -360,7 +268,7 @@ namespace ProfilerBySSFProject
                     ListAnalogChannel(i + 1, 1);
                     iChannelNum[i] = i + (int)DeviceInfo_top.byStartChan;
                 }
-                if (Camera_id_top < 0)
+                if (camera_id < 0)
                 {
                     if (MessageBox.Show("IP Cameras Connecting Error \n\nContact SSF Groups\n+98 9370047967 P.Majidi", "Fatal Error - IP Camera", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry)
                     {
@@ -373,11 +281,11 @@ namespace ProfilerBySSFProject
                     MessageBox.Show("Please stop recording firstly!");
                     return;
                 }
-                if (CameraHandel_top < 0)
+                if (camera_handle < 0)
                 {
                     //  StartLiveView();
 
-                    if (CameraHandel_top < 0)
+                    if (camera_handle < 0)
                     {
                         iLastErr = CHCNetSDK.NET_DVR_GetLastError();
                         str = "NET_DVR_RealPlay_V40 failed, error code= " + iLastErr; //预览失败，输出错误号 failed to start live view, and output the error code.
@@ -394,7 +302,7 @@ namespace ProfilerBySSFProject
                 else
                 {
                     //停止预览 Stop live view
-                    if (!CHCNetSDK.NET_DVR_StopRealPlay(CameraHandel_top))
+                    if (!CHCNetSDK.NET_DVR_StopRealPlay(camera_handle))
                     {
                         iLastErr = CHCNetSDK.NET_DVR_GetLastError();
                         str = "NET_DVR_StopRealPlay failed, error code= " + iLastErr;
@@ -426,7 +334,7 @@ namespace ProfilerBySSFProject
                     }
 
                     DebugInfo("NET_DVR_StopRealPlay succ!");
-                    CameraHandel_top = -1;
+                    camera_handle = -1;
                     //btnStart.Text= "Live View";
                     picCamLeft.Invalidate();//刷新窗口 refresh the window
                 }
@@ -447,7 +355,7 @@ namespace ProfilerBySSFProject
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            if (Camera_id_top < 0)
+            if (camera_id < 0)
             {
                 MessageBox.Show("Please login the device firstly!");
                 return;
@@ -459,7 +367,7 @@ namespace ProfilerBySSFProject
                 return;
             }
             //    MessageBox.Show();
-            if (CameraHandel_top < 0)
+            if (camera_handle < 0)
             {
                 CHCNetSDK.NET_DVR_PREVIEWINFO lpPreviewInfo = new CHCNetSDK.NET_DVR_PREVIEWINFO();
                 lpPreviewInfo.hPlayWnd = picCamLeft.Handle;//预览窗口 live view window
@@ -473,17 +381,17 @@ namespace ProfilerBySSFProject
                 if (true)
                 {
                     //打开预览 Start live view
-                    CameraHandel_top = CHCNetSDK.NET_DVR_RealPlay_V40(Camera_id_top, ref lpPreviewInfo, null/*RealData*/, pUser);
+                    camera_handle = CHCNetSDK.NET_DVR_RealPlay_V40(camera_id, ref lpPreviewInfo, null/*RealData*/, pUser);
                 }
                 else
                 {
                     lpPreviewInfo.hPlayWnd = IntPtr.Zero;//预览窗口 live view window
                     m_ptrRealHandle = picCamLeft.Handle;
                     RealData = new CHCNetSDK.REALDATACALLBACK(RealDataCallBack);//预览实时流回调函数 real-time stream callback function
-                    CameraHandel_top = CHCNetSDK.NET_DVR_RealPlay_V40(Camera_id_top, ref lpPreviewInfo, RealData, pUser);
+                    camera_handle = CHCNetSDK.NET_DVR_RealPlay_V40(camera_id, ref lpPreviewInfo, RealData, pUser);
                 }
 
-                if (CameraHandel_top < 0)
+                if (camera_handle < 0)
                 {
                     iLastErr = CHCNetSDK.NET_DVR_GetLastError();
                     str = "NET_DVR_RealPlay_V40 failed, error code= " + iLastErr; //预览失败，输出错误号 failed to start live view, and output the error code.
@@ -500,7 +408,7 @@ namespace ProfilerBySSFProject
             else
             {
                 //停止预览 Stop live view
-                if (!CHCNetSDK.NET_DVR_StopRealPlay(CameraHandel_top))
+                if (!CHCNetSDK.NET_DVR_StopRealPlay(camera_handle))
                 {
                     iLastErr = CHCNetSDK.NET_DVR_GetLastError();
                     str = "NET_DVR_StopRealPlay failed, error code= " + iLastErr;
@@ -532,7 +440,7 @@ namespace ProfilerBySSFProject
                 }
 
                 DebugInfo("NET_DVR_StopRealPlay succ!");
-                CameraHandel_top = -1;
+                camera_handle = -1;
                 // btnPreview.Text = "Live View";
                 picCamLeft.Invalidate();//刷新窗口 refresh the window
             }
@@ -552,7 +460,7 @@ namespace ProfilerBySSFProject
             string sJpegPicFileName;
             sJpegPicFileName = "filetest.jpg";//图片保存路径和文件名 the path and file name to save
 
-            if (!CHCNetSDK.NET_DVR_CaptureJPEGPicture(Camera_id_top, lChannel, ref lpJpegPara, sJpegPicFileName))
+            if (!CHCNetSDK.NET_DVR_CaptureJPEGPicture(camera_id, lChannel, ref lpJpegPara, sJpegPicFileName))
             {
                 iLastErr = CHCNetSDK.NET_DVR_GetLastError();
                 str = "NET_DVR_CaptureJPEGPicture failed, error code= " + iLastErr;
@@ -570,7 +478,7 @@ namespace ProfilerBySSFProject
             byte[] byJpegPicBuffer = new byte[iBuffSize];
             uint dwSizeReturned = 0;
 
-            if (!CHCNetSDK.NET_DVR_CaptureJPEGPicture_NEW(Camera_id_top, lChannel, ref lpJpegPara, byJpegPicBuffer, iBuffSize, ref dwSizeReturned))
+            if (!CHCNetSDK.NET_DVR_CaptureJPEGPicture_NEW(camera_id, lChannel, ref lpJpegPara, byJpegPicBuffer, iBuffSize, ref dwSizeReturned))
             {
                 iLastErr = CHCNetSDK.NET_DVR_GetLastError();
                 str = "NET_DVR_CaptureJPEGPicture_NEW failed, error code= " + iLastErr;
@@ -596,17 +504,17 @@ namespace ProfilerBySSFProject
         private void cameraExit()
         {
             //停止预览
-            if (CameraHandel_top >= 0)
+            if (camera_handle >= 0)
             {
-                CHCNetSDK.NET_DVR_StopRealPlay(CameraHandel_top);
-                CameraHandel_top = -1;
+                CHCNetSDK.NET_DVR_StopRealPlay(camera_handle);
+                camera_handle = -1;
             }
 
             //注销登录
-            if (Camera_id_top >= 0)
+            if (camera_id >= 0)
             {
-                CHCNetSDK.NET_DVR_Logout(Camera_id_top);
-                Camera_id_top = -1;
+                CHCNetSDK.NET_DVR_Logout(camera_id);
+                camera_id = -1;
             }
 
             CHCNetSDK.NET_DVR_Cleanup();
@@ -762,8 +670,8 @@ namespace ProfilerBySSFProject
         private void cameraDisconnect()
         {
             listViewIPChannel.Items.Clear();//清空通道列表 Clean up the channel list
-            CHCNetSDK.NET_DVR_Logout(Camera_id_top);
-            Camera_id_top = -1;
+            CHCNetSDK.NET_DVR_Logout(camera_id);
+            camera_id = -1;
         }
 
         private int m_lRealHandle = -1;
@@ -799,7 +707,7 @@ namespace ProfilerBySSFProject
                 //StopLiveView();
                 camraConnect();
                 // StartLiveView();
-                playOnBig(Camera_id_top);
+                playOnBig(camera_id);
                 this.Cursor = Cursors.Default;
                 CameraRunning = true;
                 picCamLeft.Visible = true;
@@ -848,7 +756,7 @@ namespace ProfilerBySSFProject
             if (!CameraRunning) return;
             try
             {
-                shotImage(Camera_id_top, "pic.jpg");
+                shotImage(camera_id, "pic.jpg");
                 System.Diagnostics.Process.Start("pic.jpg");
             }
             catch
