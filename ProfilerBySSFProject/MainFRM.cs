@@ -682,7 +682,7 @@ namespace ProfilerBySSFProject
         }
 
         private bool CameraRunning = false;
-        private bool shotted01, shotted02, shotted03;
+
 
         private void pictureBox14_Click(object sender, EventArgs e)
         {

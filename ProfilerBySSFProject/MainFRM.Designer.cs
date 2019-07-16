@@ -36,13 +36,11 @@
             this.ColumnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelParcel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCamLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // panelParcel
@@ -131,18 +129,6 @@
             this.pictureBox14.TabStop = false;
             this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
             // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(76)))), ((int)(((byte)(130)))));
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(963, 457);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(151, 41);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 89;
-            this.pictureBox10.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -162,7 +148,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.listViewIPChannel);
-            this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.panelParcel);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.KeyPreview = true;
@@ -180,7 +165,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picCamLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,7 +173,6 @@
         #endregion
         public System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel panelParcel;
-        private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.ListView listViewIPChannel;
         private System.Windows.Forms.ColumnHeader ColumnHeader1;
         private System.Windows.Forms.ColumnHeader ColumnHeader2;
