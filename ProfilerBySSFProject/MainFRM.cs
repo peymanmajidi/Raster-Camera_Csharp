@@ -1,5 +1,4 @@
-﻿using BusinessRefinery.Barcode;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NAudio;
-using NAudio.Wave;
+
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Net;
@@ -47,7 +45,7 @@ namespace ProfilerBySSFProject
             }
             else
             {
-                CHCNetSDK.NET_DVR_SetLogToFile(3, app.WorkingPath, true);
+                CHCNetSDK.NET_DVR_SetLogToFile(3, ".", true);
 
                 for (int i = 0; i < 64; i++)
                 {
@@ -244,7 +242,7 @@ namespace ProfilerBySSFProject
             catch
             {
                 //  StopAllTimers();
-                app.SystemError("Error in Stopping Camera\nContact SSF Groups");
+                MessageBox.Show("Error in Stopping Camera\nContact SSF Groups");
 
                 return;
             }
@@ -343,8 +341,7 @@ namespace ProfilerBySSFProject
             {
                 //btnStart.Enabled = true;
                 //btnStop.Enabled = false;
-
-                app.SystemError("Error in Connecting Camera\nContact SSF Groups");
+                MessageBox.Show("Error in Connecting Camera\nContact SSF Groups");
                 Application.Exit();
                 this.Close();
                 return;
@@ -536,7 +533,7 @@ namespace ProfilerBySSFProject
             else
             {
                 //保存SDK日志 To save the SDK log
-                CHCNetSDK.NET_DVR_SetLogToFile(3, app.WorkingPath, true);
+                CHCNetSDK.NET_DVR_SetLogToFile(3, ".", true);
 
                 //comboBoxView.SelectedIndex = 0;
 

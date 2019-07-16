@@ -95,8 +95,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="app.cs" />
-    <Compile Include="beta.cs" />
     <Compile Include="CHCNetSDK.cs" />
     <Compile Include="MainFRM.cs">
       <SubType>Form</SubType>
@@ -112,7 +110,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WMPLib\WindowsMediaPlayer.cs" />
     <EmbeddedResource Include="MainFRM.resx">
       <DependentUpon>MainFRM.cs</DependentUpon>
     </EmbeddedResource>
