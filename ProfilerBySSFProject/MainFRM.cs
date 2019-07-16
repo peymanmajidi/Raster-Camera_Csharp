@@ -1,23 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
+
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO.Ports;
-using System.Linq;
-using System.Text;
+
 using System.Threading;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 using System.Runtime.InteropServices;
 using System.IO;
-using System.Net;
-using System.Runtime.Serialization.Json;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 
 namespace ProfilerBySSFProject
 {
