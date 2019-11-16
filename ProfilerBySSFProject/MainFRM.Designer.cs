@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFRM));
-            this.panelParcel = new System.Windows.Forms.Panel();
-            this.picCamLeft = new System.Windows.Forms.PictureBox();
+            this.panelCamera = new System.Windows.Forms.Panel();
+            this.picCameraOutput = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.listViewIPChannel = new System.Windows.Forms.ListView();
             this.ColumnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.picConnect = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,40 +43,40 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
-            this.panelParcel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picCamLeft)).BeginInit();
+            this.panelCamera.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCameraOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picConnect)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelParcel
+            // panelCamera
             // 
-            this.panelParcel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelCamera.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelParcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(76)))), ((int)(((byte)(130)))));
-            this.panelParcel.Controls.Add(this.picCamLeft);
-            this.panelParcel.Controls.Add(this.pictureBox6);
-            this.panelParcel.Font = new System.Drawing.Font("B Nazanin", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.panelParcel.ForeColor = System.Drawing.Color.White;
-            this.panelParcel.Location = new System.Drawing.Point(15, 12);
-            this.panelParcel.Name = "panelParcel";
-            this.panelParcel.Size = new System.Drawing.Size(861, 664);
-            this.panelParcel.TabIndex = 87;
+            this.panelCamera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(76)))), ((int)(((byte)(130)))));
+            this.panelCamera.Controls.Add(this.picCameraOutput);
+            this.panelCamera.Controls.Add(this.pictureBox6);
+            this.panelCamera.Font = new System.Drawing.Font("B Nazanin", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.panelCamera.ForeColor = System.Drawing.Color.White;
+            this.panelCamera.Location = new System.Drawing.Point(15, 12);
+            this.panelCamera.Name = "panelCamera";
+            this.panelCamera.Size = new System.Drawing.Size(861, 664);
+            this.panelCamera.TabIndex = 87;
             // 
-            // picCamLeft
+            // picCameraOutput
             // 
-            this.picCamLeft.Cursor = System.Windows.Forms.Cursors.PanNorth;
-            this.picCamLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picCamLeft.Image = ((System.Drawing.Image)(resources.GetObject("picCamLeft.Image")));
-            this.picCamLeft.Location = new System.Drawing.Point(0, 0);
-            this.picCamLeft.Margin = new System.Windows.Forms.Padding(4);
-            this.picCamLeft.Name = "picCamLeft";
-            this.picCamLeft.Size = new System.Drawing.Size(861, 664);
-            this.picCamLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCamLeft.TabIndex = 107;
-            this.picCamLeft.TabStop = false;
-            this.picCamLeft.Click += new System.EventHandler(this.picCamLeft_Click);
+            this.picCameraOutput.Cursor = System.Windows.Forms.Cursors.PanNorth;
+            this.picCameraOutput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picCameraOutput.Image = ((System.Drawing.Image)(resources.GetObject("picCameraOutput.Image")));
+            this.picCameraOutput.Location = new System.Drawing.Point(0, 0);
+            this.picCameraOutput.Margin = new System.Windows.Forms.Padding(4);
+            this.picCameraOutput.Name = "picCameraOutput";
+            this.picCameraOutput.Size = new System.Drawing.Size(861, 664);
+            this.picCameraOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCameraOutput.TabIndex = 107;
+            this.picCameraOutput.TabStop = false;
+            this.picCameraOutput.Click += new System.EventHandler(this.picCamLeft_Click);
             // 
             // pictureBox6
             // 
@@ -120,19 +120,19 @@
             this.ColumnHeader2.Text = "Status";
             this.ColumnHeader2.Width = 90;
             // 
-            // pictureBox14
+            // picConnect
             // 
-            this.pictureBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.Location = new System.Drawing.Point(895, 12);
-            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(125, 103);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox14.TabIndex = 108;
-            this.pictureBox14.TabStop = false;
-            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
+            this.picConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picConnect.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picConnect.Image = ((System.Drawing.Image)(resources.GetObject("picConnect.Image")));
+            this.picConnect.Location = new System.Drawing.Point(895, 12);
+            this.picConnect.Margin = new System.Windows.Forms.Padding(4);
+            this.picConnect.Name = "picConnect";
+            this.picConnect.Size = new System.Drawing.Size(125, 103);
+            this.picConnect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picConnect.TabIndex = 108;
+            this.picConnect.TabStop = false;
+            this.picConnect.Click += new System.EventHandler(this.picConnect_Clicked);
             // 
             // label1
             // 
@@ -223,9 +223,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox14);
+            this.Controls.Add(this.picConnect);
             this.Controls.Add(this.listViewIPChannel);
-            this.Controls.Add(this.panelParcel);
+            this.Controls.Add(this.panelCamera);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.KeyPreview = true;
             this.Name = "MainFRM";
@@ -237,10 +237,10 @@
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainFRM_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainFRM_DragEnter);
             this.DragOver += new System.Windows.Forms.DragEventHandler(this.MainFRM_DragOver);
-            this.panelParcel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picCamLeft)).EndInit();
+            this.panelCamera.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picCameraOutput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picConnect)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,12 +248,12 @@
 
         #endregion
         public System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Panel panelParcel;
+        private System.Windows.Forms.Panel panelCamera;
         private System.Windows.Forms.ListView listViewIPChannel;
         private System.Windows.Forms.ColumnHeader ColumnHeader1;
         private System.Windows.Forms.ColumnHeader ColumnHeader2;
-        private System.Windows.Forms.PictureBox picCamLeft;
-        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.PictureBox picCameraOutput;
+        private System.Windows.Forms.PictureBox picConnect;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label2;

@@ -184,7 +184,7 @@ namespace ProfilerBySSFProject
         {
             // نمایش زنده ویدیو ها  // Video Live
             CHCNetSDK.NET_DVR_PREVIEWINFO lpPreviewInfoA = new CHCNetSDK.NET_DVR_PREVIEWINFO();
-            lpPreviewInfoA.hPlayWnd = picCamLeft.Handle;//预览窗口 live view window
+            lpPreviewInfoA.hPlayWnd = picCameraOutput.Handle;//预览窗口 live view window
             lpPreviewInfoA.lChannel = iChannelNum[(int)iSelIndex];//预览的设备通道 the device channel number
             lpPreviewInfoA.dwStreamType = 0;//码流类型：0-主码流，1-子码流，2-码流3，3-码流4，以此类推
             lpPreviewInfoA.dwLinkMode = 0;//连接方式：0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP
@@ -300,7 +300,7 @@ namespace ProfilerBySSFProject
                     DebugInfo("NET_DVR_StopRealPlay succ!");
                     camera_handle = -1;
                     //btnStart.Text= "Live View";
-                    picCamLeft.Invalidate();//刷新窗口 refresh the window
+                    picCameraOutput.Invalidate();//刷新窗口 refresh the window
                 }
             }
             catch
@@ -333,7 +333,7 @@ namespace ProfilerBySSFProject
             if (camera_handle < 0)
             {
                 CHCNetSDK.NET_DVR_PREVIEWINFO lpPreviewInfo = new CHCNetSDK.NET_DVR_PREVIEWINFO();
-                lpPreviewInfo.hPlayWnd = picCamLeft.Handle;//预览窗口 live view window
+                lpPreviewInfo.hPlayWnd = picCameraOutput.Handle;//预览窗口 live view window
                 lpPreviewInfo.lChannel = iChannelNum[(int)iSelIndex];//预览的设备通道 the device channel number
                 lpPreviewInfo.dwStreamType = 0;//码流类型：0-主码流，1-子码流，2-码流3，3-码流4，以此类推
                 lpPreviewInfo.dwLinkMode = 0;//连接方式：0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP
@@ -349,7 +349,7 @@ namespace ProfilerBySSFProject
                 else
                 {
                     lpPreviewInfo.hPlayWnd = IntPtr.Zero;//预览窗口 live view window
-                    m_ptrRealHandle = picCamLeft.Handle;
+                    m_ptrRealHandle = picCameraOutput.Handle;
                     RealData = new CHCNetSDK.REALDATACALLBACK(RealDataCallBack);//预览实时流回调函数 real-time stream callback function
                     camera_handle = CHCNetSDK.NET_DVR_RealPlay_V40(camera_id, ref lpPreviewInfo, RealData, pUser);
                 }
@@ -405,7 +405,7 @@ namespace ProfilerBySSFProject
                 DebugInfo("NET_DVR_StopRealPlay succ!");
                 camera_handle = -1;
                 // btnPreview.Text = "Live View";
-                picCamLeft.Invalidate();//刷新窗口 refresh the window
+                picCameraOutput.Invalidate();//刷新窗口 refresh the window
             }
             return;
         }
@@ -642,9 +642,9 @@ namespace ProfilerBySSFProject
         private void playOnBig(int userid)
         {
             CHCNetSDK.NET_DVR_StopRealPlay(m_lRealHandle);
-            picCamLeft.Visible = true;
+            picCameraOutput.Visible = true;
             CHCNetSDK.NET_DVR_PREVIEWINFO lpPreviewInfoBig = new CHCNetSDK.NET_DVR_PREVIEWINFO();
-            lpPreviewInfoBig.hPlayWnd = picCamLeft.Handle;//预览窗口 live view window
+            lpPreviewInfoBig.hPlayWnd = picCameraOutput.Handle;//预览窗口 live view window
             lpPreviewInfoBig.lChannel = iChannelNum[(int)iSelIndex];//预览的设备通道 the device channel number
             lpPreviewInfoBig.dwStreamType = 0;//码流类型：0-主码流，1-子码流，2-码流3，3-码流4，以此类推
             lpPreviewInfoBig.dwLinkMode = 0;//连接方式：0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP
@@ -660,7 +660,7 @@ namespace ProfilerBySSFProject
         private bool CameraRunning = false;
 
 
-        private void pictureBox14_Click(object sender, EventArgs e)
+        private void picConnect_Clicked(object sender, EventArgs e)
         {
             if (!CameraRunning)
             {
@@ -671,14 +671,14 @@ namespace ProfilerBySSFProject
                 playOnBig(camera_id);
                 this.Cursor = Cursors.Default;
                 CameraRunning = true;
-                picCamLeft.Visible = true;
+                picCameraOutput.Visible = true;
             }
             else
             {
                 CameraRunning = false;
                 StopLiveView();
                 CameraDisconnect();
-                picCamLeft.Visible = false;
+                picCameraOutput.Visible = false;
             }
         }
 
