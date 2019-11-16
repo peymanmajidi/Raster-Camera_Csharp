@@ -21,9 +21,10 @@ namespace ProfilerBySSFProject
 
         private void MainFRM_Load(object sender, EventArgs e)
         {
-         
-            // camera -----
 
+
+
+            #region Camera Init
             m_bInitSDK = CHCNetSDK.NET_DVR_Init();
             if (m_bInitSDK == false)
             {
@@ -40,16 +41,13 @@ namespace ProfilerBySSFProject
                     iIPDevID[i] = -1;
                     iChannelNum[i] = -1;
                 }
-            }
+            } 
+            #endregion
 
 
             this.Cursor = Cursors.Default;
         }
 
-
-      
-
-       
        
 
         private void MainFRM_KeyUp(object sender, KeyEventArgs e)
@@ -74,6 +72,7 @@ namespace ProfilerBySSFProject
 
         //  CAMERAS AND ALL OF THE DATAS ..........................................................................
 
+        #region Camera Setup
         private bool m_bInitSDK = false;
         private bool m_bRecord = false;
         private uint iLastErr = 0;
@@ -174,12 +173,12 @@ namespace ProfilerBySSFProject
 
         public void ListIPChannel(Int32 iChanNo, byte byOnline, int byIPID)
         {
-            
+
         }
 
         public void ListAnalogChannel(Int32 iChanNo, byte byEnable)
         {
-           
+
         }
 
         private void listViewIPChannel_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -509,7 +508,7 @@ namespace ProfilerBySSFProject
 
         public void start_Shown(object sender, EventArgs e)
         {
-       
+
             this.Cursor = Cursors.WaitCursor;
             m_bInitSDK = CHCNetSDK.NET_DVR_Init();
             if (m_bInitSDK == false)
@@ -652,7 +651,7 @@ namespace ProfilerBySSFProject
             }
         }
 
-        private void cameraDisconnect()
+        private void CameraDisconnect()
         {
             listViewIPChannel.Items.Clear();//清空通道列表 Clean up the channel list
             CHCNetSDK.NET_DVR_Logout(camera_id);
@@ -688,10 +687,8 @@ namespace ProfilerBySSFProject
             {
                 this.Cursor = Cursors.WaitCursor;
                 StopLiveView();
-                cameraDisconnect();
-                //StopLiveView();
+                CameraDisconnect();
                 ConnectToCamera();
-                // StartLiveView();
                 playOnBig(camera_id);
                 this.Cursor = Cursors.Default;
                 CameraRunning = true;
@@ -701,16 +698,16 @@ namespace ProfilerBySSFProject
             {
                 CameraRunning = false;
                 StopLiveView();
-                cameraDisconnect();
+                CameraDisconnect();
                 picCamLeft.Visible = false;
             }
         }
 
-      
 
-      
 
-    
+
+
+
 
         private string[] filenamesdroped;
 
@@ -729,7 +726,7 @@ namespace ProfilerBySSFProject
 
         private void MainFRM_DragDrop(object sender, DragEventArgs e)
         {
-            
+
         }
 
         private bool handyBarcode = false;
@@ -761,7 +758,7 @@ namespace ProfilerBySSFProject
             string sJpegPicFileName;
             sJpegPicFileName = path;
 
-           try
+            try
             {
                 File.Delete(path);
             }
@@ -782,7 +779,7 @@ namespace ProfilerBySSFProject
             return null;
         }
 
+        #endregion
 
-        // END OF CAMERA .............................................................................................
     }
 }

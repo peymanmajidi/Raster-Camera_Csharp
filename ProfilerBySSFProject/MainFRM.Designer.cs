@@ -37,6 +37,12 @@
             this.ColumnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.panelParcel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCamLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -53,9 +59,9 @@
             this.panelParcel.Controls.Add(this.pictureBox6);
             this.panelParcel.Font = new System.Drawing.Font("B Nazanin", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.panelParcel.ForeColor = System.Drawing.Color.White;
-            this.panelParcel.Location = new System.Drawing.Point(12, 12);
+            this.panelParcel.Location = new System.Drawing.Point(15, 12);
             this.panelParcel.Name = "panelParcel";
-            this.panelParcel.Size = new System.Drawing.Size(757, 664);
+            this.panelParcel.Size = new System.Drawing.Size(861, 664);
             this.panelParcel.TabIndex = 87;
             // 
             // picCamLeft
@@ -66,7 +72,7 @@
             this.picCamLeft.Location = new System.Drawing.Point(0, 0);
             this.picCamLeft.Margin = new System.Windows.Forms.Padding(4);
             this.picCamLeft.Name = "picCamLeft";
-            this.picCamLeft.Size = new System.Drawing.Size(757, 664);
+            this.picCamLeft.Size = new System.Drawing.Size(861, 664);
             this.picCamLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picCamLeft.TabIndex = 107;
             this.picCamLeft.TabStop = false;
@@ -95,7 +101,7 @@
             this.listViewIPChannel.Enabled = false;
             this.listViewIPChannel.FullRowSelect = true;
             this.listViewIPChannel.GridLines = true;
-            this.listViewIPChannel.Location = new System.Drawing.Point(-259, -172);
+            this.listViewIPChannel.Location = new System.Drawing.Point(-134, -172);
             this.listViewIPChannel.Margin = new System.Windows.Forms.Padding(4);
             this.listViewIPChannel.MultiSelect = false;
             this.listViewIPChannel.Name = "listViewIPChannel";
@@ -120,7 +126,7 @@
             this.pictureBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.Location = new System.Drawing.Point(781, 12);
+            this.pictureBox14.Location = new System.Drawing.Point(895, 12);
             this.pictureBox14.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(125, 103);
@@ -131,12 +137,78 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(787, 657);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(889, 657);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 13);
+            this.label1.Size = new System.Drawing.Size(133, 13);
             this.label1.TabIndex = 109;
-            this.label1.Text = "click on image to shot";
+            this.label1.Text = "click on camera to connect";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUsername.Location = new System.Drawing.Point(892, 147);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(123, 21);
+            this.txtUsername.TabIndex = 110;
+            this.txtUsername.Text = "admin";
+            this.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(890, 133);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 111;
+            this.label2.Text = "Username:";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(890, 172);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.TabIndex = 113;
+            this.label3.Text = "Password:";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassword.Location = new System.Drawing.Point(892, 186);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '•';
+            this.txtPassword.Size = new System.Drawing.Size(123, 21);
+            this.txtPassword.TabIndex = 112;
+            this.txtPassword.Text = "12345";
+            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(890, 237);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.TabIndex = 115;
+            this.label4.Text = "IP Address:";
+            // 
+            // txtIPAddress
+            // 
+            this.txtIPAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIPAddress.Location = new System.Drawing.Point(892, 251);
+            this.txtIPAddress.Name = "txtIPAddress";
+            this.txtIPAddress.Size = new System.Drawing.Size(123, 21);
+            this.txtIPAddress.TabIndex = 114;
+            this.txtIPAddress.Text = "192.168.2.200";
+            this.txtIPAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // MainFRM
             // 
@@ -144,7 +216,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(35)))), ((int)(((byte)(31)))));
-            this.ClientSize = new System.Drawing.Size(912, 687);
+            this.ClientSize = new System.Drawing.Size(1037, 687);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtIPAddress);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.listViewIPChannel);
@@ -154,7 +232,7 @@
             this.Name = "MainFRM";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "اتصال به دوربین Raster";
+            this.Text = "Raster Camera";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFRM_FormClosing);
             this.Load += new System.EventHandler(this.MainFRM_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainFRM_DragDrop);
@@ -179,5 +257,11 @@
         private System.Windows.Forms.PictureBox picCamLeft;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtIPAddress;
     }
 }
