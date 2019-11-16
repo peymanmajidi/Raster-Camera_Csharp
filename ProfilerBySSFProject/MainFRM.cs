@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO;
 
-namespace ProfilerBySSFProject
+namespace RasterCamera
 {
     public partial class MainFRM : Form
     {

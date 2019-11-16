@@ -1,4 +1,4 @@
-﻿namespace ProfilerBySSFProject
+﻿namespace RasterCamera
 {
     partial class MainFRM
     {

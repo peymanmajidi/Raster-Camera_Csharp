@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 using System;
 using System.Runtime.InteropServices;
-namespace ProfilerBySSFProject
+namespace RasterCamera
 {
     /// <summary>
     /// CHCNetSDK µؤصھزھثµأ÷،£

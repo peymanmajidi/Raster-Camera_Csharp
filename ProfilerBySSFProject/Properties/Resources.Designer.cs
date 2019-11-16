@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProfilerBySSFProject.Properties {
+namespace RasterCamera.Properties {
     using System;
     
     
