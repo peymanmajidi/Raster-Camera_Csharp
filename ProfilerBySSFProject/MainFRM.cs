@@ -14,8 +14,6 @@ namespace ProfilerBySSFProject
     public partial class MainFRM : Form
     {
 
-
-        // توابع و متدها
         public MainFRM()
         {
             InitializeComponent();
@@ -238,7 +236,7 @@ namespace ProfilerBySSFProject
             }
         }
 
-        private void camraConnect()
+        private void ConnectToCamera()
         {
             try
             {
@@ -692,7 +690,7 @@ namespace ProfilerBySSFProject
                 StopLiveView();
                 cameraDisconnect();
                 //StopLiveView();
-                camraConnect();
+                ConnectToCamera();
                 // StartLiveView();
                 playOnBig(camera_id);
                 this.Cursor = Cursors.Default;

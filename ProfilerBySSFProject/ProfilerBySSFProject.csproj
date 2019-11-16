@@ -74,20 +74,15 @@
       <DependentUpon>MainFRM.cs</DependentUpon>
     </Compile>
     <Compile Include="PlayCtrl.cs" />
-    <Compile Include="ProfilerDB.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProfilerDB.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainFRM.resx">
       <DependentUpon>MainFRM.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\HCNetSDKCom\HCAlarm.lib" />
+    <None Include="bin\Debug\HCNetSDKCom\HCGeneralCfgMgr.lib" />
+    <None Include="bin\Debug\HCNetSDKCom\HCPreview.lib" />
     <None Include="CHCNetSDK.cd" />
-    <None Include="ProfilerDB.dbml.layout">
-      <DependentUpon>ProfilerDB.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -99,11 +94,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
-    <None Include="ProfilerDB.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>ProfilerDB.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -164,6 +154,26 @@
     <None Include="Resources\ON_BTN.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\glib-sharp.dll" />
+    <Content Include="bin\Debug\HCCore.dll" />
+    <Content Include="bin\Debug\HCNetSDK.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\AudioIntercom.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\DsSdk.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\HCAlarm.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\HCCoreDevCfg.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\HCDisplay.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\HCGeneralCfgMgr.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\HCIndustry.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\HCPlayBack.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\HCPreview.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\HCVoiceTalk.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\libeay32.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\msvcr90.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\OpenAL32.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\ssleay32.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\StreamTransClient.dll" />
+    <Content Include="bin\Debug\HCNetSDKCom\SystemTransform.dll" />
+    <Content Include="bin\Debug\OzekiSDK.dll" />
     <Content Include="favicon.ico" />
     <None Include="Resources\barcode_no.png" />
     <None Include="Resources\barcode.png" />
