@@ -89,7 +89,6 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 86;
             this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // listViewIPChannel
             // 
@@ -238,7 +237,6 @@
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainFRM_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainFRM_DragEnter);
             this.DragOver += new System.Windows.Forms.DragEventHandler(this.MainFRM_DragOver);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainFRM_KeyUp);
             this.panelParcel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picCamLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();

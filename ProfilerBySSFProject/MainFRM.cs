@@ -22,8 +22,6 @@ namespace ProfilerBySSFProject
         private void MainFRM_Load(object sender, EventArgs e)
         {
 
-
-
             #region Camera Init
             m_bInitSDK = CHCNetSDK.NET_DVR_Init();
             if (m_bInitSDK == false)
@@ -44,23 +42,9 @@ namespace ProfilerBySSFProject
             } 
             #endregion
 
-
             this.Cursor = Cursors.Default;
         }
 
-       
-
-        private void MainFRM_KeyUp(object sender, KeyEventArgs e)
-        {
-           
-        }
-
-
-
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-        }
 
       
         private void MainFRM_FormClosing(object sender,
@@ -69,8 +53,6 @@ namespace ProfilerBySSFProject
            
         }
 
-
-        //  CAMERAS AND ALL OF THE DATAS ..........................................................................
 
         #region Camera Setup
         private bool m_bInitSDK = false;
@@ -223,13 +205,10 @@ namespace ProfilerBySSFProject
             {
                 CHCNetSDK.NET_DVR_StopRealPlay(camera_handle);
                 camera_handle = -1;
-
-                //btnStart.Enabled = true;
             }
-            catch
+            catch(Exception ex)
             {
-                //  StopAllTimers();
-                MessageBox.Show("Error in Stopping Camera\nContact SSF Groups");
+                MessageBox.Show("Error Happned !!!\n" + ex.Message );
 
                 return;
             }
@@ -239,11 +218,11 @@ namespace ProfilerBySSFProject
         {
             try
             {
-                string ip_address_top = "192.168.2.200"; // top
+                string ip_address_top = txtIPAddress.Text;
 
                 Int16 DVRPortNumber = 8000;
-                string DVRUserName = "admin";
-                string DVRPassword = "12345";
+                string DVRUserName = txtUsername.Text;
+                string DVRPassword = txtPassword.Text;
                 //登录设备 Login the device
                 camera_id = CHCNetSDK.NET_DVR_Login_V30(ip_address_top, DVRPortNumber, DVRUserName, DVRPassword, ref DeviceInfo_top);
                 dwAChanTotalNum = (uint)DeviceInfo_top.byChanNum;
@@ -255,7 +234,7 @@ namespace ProfilerBySSFProject
                 }
                 if (camera_id < 0)
                 {
-                    if (MessageBox.Show("IP Cameras Connecting Error \n\nContact SSF Groups\n+98 9370047967 P.Majidi", "Fatal Error - IP Camera", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry)
+                    if (MessageBox.Show("IP Cameras Connecting Error", "Fatal Error - IP Camera", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry)
                     {
                         btnStart_Click(null, null);
                         return;
